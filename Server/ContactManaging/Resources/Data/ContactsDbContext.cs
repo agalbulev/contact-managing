@@ -21,10 +21,12 @@ namespace ContactManaging.Core.Data
                     .ValueGeneratedOnAdd();
 
                 build.Property(p => p.FirstName)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasMaxLength(200);
 
                 build.Property(p => p.Surname)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasMaxLength(200);
 
                 build.Property(p => p.DateOfBirth)
                     .IsRequired();

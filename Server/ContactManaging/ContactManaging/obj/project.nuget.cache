@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "yNat6++xXp4ILgoRB4YN/o/UR3PDst/62y/YK9j9E3bU0BV8KbXylQdGeHe0l9HUgRZE/Mhf191akcTalmlUeQ==",
+  "dgSpecHash": "KtoWk6DOOH8QWr6nS6oDUYzXswchbfuJvtnbvPlQDiSffZjZQ+VknzL6ZUOPHd/EZPHxLU7zE4pvqraqlCJCiQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\task\\Server\\ContactManaging\\ContactManaging\\ContactManaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
+    "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

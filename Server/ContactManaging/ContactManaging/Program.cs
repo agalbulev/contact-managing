@@ -3,8 +3,9 @@ using ContactManaging.Core.Handlers.CommandHandlers;
 using ContactManaging.Core.Handlers.QueryHandlers;
 using ContactManaging.Core.Interfaces.CommandHandlers;
 using ContactManaging.Core.Interfaces.QueryHandlers;
+using ContactManaging.Core.RequestModels;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddDbContext<ContactsDbContext>(options =>
 
 builder.Services.AddScoped<ISaveContactCommandHander, SaveContactCommandHandler>();
 builder.Services.AddScoped<IGetAllContactsQueryHandler, GetAllContactsQueryHandler>();
+
+builder.Services.AddScoped<IValidator<SaveContactRequestModel>, SaveContactRequestModelValidator>();
 
 var app = builder.Build();
 
