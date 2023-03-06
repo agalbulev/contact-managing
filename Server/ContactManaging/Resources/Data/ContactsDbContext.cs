@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ContactManaging.Data
+namespace ContactManaging.Core.Data
 {
     public class ContactsDbContext : DbContext
     {

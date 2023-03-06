@@ -1,4 +1,4 @@
-﻿namespace ContactManaging.Data
+﻿namespace ContactManaging.Core.Data
 {
     public class Contact
     {

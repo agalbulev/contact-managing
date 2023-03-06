@@ -1,4 +1,6 @@
-using ContactManaging.Data;
+using ContactManaging.Core.Data;
+using ContactManaging.Core.Handlers.CommandHandlers;
+using ContactManaging.Core.Interfaces.CommandHandlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -15,6 +17,8 @@ builder.Services.AddDbContext<ContactsDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ContactsContext"));
 });
+
+builder.Services.AddScoped<ISaveContactCommandHander, SaveContactCommandHandler>();
 
 var app = builder.Build();
 

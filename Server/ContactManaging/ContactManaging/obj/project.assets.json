@@ -1133,6 +1133,19 @@
             "rid": "win"
           }
         }
+      },
+      "ContactManaging.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ContactManaging.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContactManaging.Core.dll": {}
+        }
       }
     }
   },
@@ -3427,10 +3440,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ContactManaging.Core/1.0.0": {
+      "type": "project",
+      "path": "../Resources/ContactManaging.Core.csproj",
+      "msbuildProject": "../Resources/ContactManaging.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ContactManaging.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -3461,7 +3480,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projects\\task\\Server\\ContactManaging\\Resources\\ContactManaging.Core.csproj": {
+              "projectPath": "C:\\Projects\\task\\Server\\ContactManaging\\Resources\\ContactManaging.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
