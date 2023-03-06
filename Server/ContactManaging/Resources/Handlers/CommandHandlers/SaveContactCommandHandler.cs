@@ -1,6 +1,6 @@
-﻿using ContactManaging.Core.Commands;
-using ContactManaging.Core.Data;
+﻿using ContactManaging.Core.Data;
 using ContactManaging.Core.Interfaces.CommandHandlers;
+using ContactManaging.Core.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace ContactManaging.Core.Handlers.CommandHandlers
             _contactsDbContext = contactsDbContext;
         }
 
-        public async Task<int> Save(SaveContactCommand command)
+        public async Task<int> Save(SaveContactRequestModel command)
         {
             var newContact = new Contact
             {

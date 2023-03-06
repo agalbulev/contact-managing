@@ -1,5 +1,6 @@
-﻿using ContactManaging.Core.Commands;
-using ContactManaging.Core.Interfaces.CommandHandlers;
+﻿using ContactManaging.Core.Interfaces.CommandHandlers;
+using ContactManaging.Core.Interfaces.QueryHandlers;
+using ContactManaging.Core.RequestModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManaging.Controllers
@@ -10,16 +11,25 @@ namespace ContactManaging.Controllers
     {
         private readonly ISaveContactCommandHander _saveContactCommandHander;
 
-        public ContactsController(ISaveContactCommandHander saveContactCommandHander)
+        private readonly IGetAllContactsQueryHandler _getAllContactsQueryHandler;
+
+        public ContactsController(ISaveContactCommandHander saveContactCommandHander, IGetAllContactsQueryHandler getAllContactsQueryHandler)
         {
             _saveContactCommandHander = saveContactCommandHander;
+            _getAllContactsQueryHandler = getAllContactsQueryHandler;
         }
 
         [HttpPost]
-        [Route("Add")]
-        public async Task<IActionResult> AddContact(SaveContactCommand contact)
+        public async Task<IActionResult> AddContact(SaveContactRequestModel contact)
         {
             var result = await _saveContactCommandHander.Save(contact);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetContacts()
+        {
+            var result = await _getAllContactsQueryHandler.GetContacts();
             return Ok(result);
         }
     }

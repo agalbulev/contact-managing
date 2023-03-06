@@ -1,6 +1,8 @@
 using ContactManaging.Core.Data;
 using ContactManaging.Core.Handlers.CommandHandlers;
+using ContactManaging.Core.Handlers.QueryHandlers;
 using ContactManaging.Core.Interfaces.CommandHandlers;
+using ContactManaging.Core.Interfaces.QueryHandlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -19,6 +21,7 @@ builder.Services.AddDbContext<ContactsDbContext>(options =>
 });
 
 builder.Services.AddScoped<ISaveContactCommandHander, SaveContactCommandHandler>();
+builder.Services.AddScoped<IGetAllContactsQueryHandler, GetAllContactsQueryHandler>();
 
 var app = builder.Build();
 

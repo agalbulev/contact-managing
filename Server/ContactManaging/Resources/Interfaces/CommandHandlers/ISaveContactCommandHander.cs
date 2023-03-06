@@ -1,4 +1,4 @@
-﻿using ContactManaging.Core.Commands;
+﻿using ContactManaging.Core.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace ContactManaging.Core.Interfaces.CommandHandlers
 {
     public interface ISaveContactCommandHander
     {
-        Task<int> Save(SaveContactCommand command);
+        Task<int> Save(SaveContactRequestModel command);
     }
 }
