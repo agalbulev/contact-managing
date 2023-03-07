@@ -110,5 +110,7 @@
       }
     }
   },
-  "defaultProject": "contact-managing"
+  "cli": {
+    "analytics": false
+  }
 }
