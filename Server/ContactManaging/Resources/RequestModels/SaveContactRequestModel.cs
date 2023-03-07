@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,17 +11,33 @@ namespace ContactManaging.Core.RequestModels
 {
     public class SaveContactRequestModel
     {
+        private string _dateOfBirth;
+
         public string FirstName { get; set; }
 
         public string Surname { get; set; }
 
-        public DateTime? DateOfBirth { get; set; }
+        public string DateOfBirth {
+            get => _dateOfBirth; 
+            set
+            {
+                DateTime dt;
+                _dateOfBirth = value;
+
+                if (DateTime.TryParseExact(value, "yyyy-dd-MM", null, DateTimeStyles.None, out dt))
+                {
+                    DateOfBirthDateTime = dt;
+                }
+            }
+        }
 
         public string? Address { get; set; }
 
         public string? PhoneNumber { get; set; }
 
         public string? Iban { get; set; }
+
+        public DateTime? DateOfBirthDateTime { get; private set; }
     }
 
     public class SaveContactRequestModelValidator : AbstractValidator<SaveContactRequestModel>
@@ -37,6 +54,9 @@ namespace ContactManaging.Core.RequestModels
 
             RuleFor(c => c.DateOfBirth)
                 .NotNull();
+
+            RuleFor(c => c.DateOfBirthDateTime)
+                .LessThanOrEqualTo(DateTime.Today);
 
             RuleFor(c => c.Address)
                 .MaximumLength(200);
