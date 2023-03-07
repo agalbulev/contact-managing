@@ -56,6 +56,7 @@ namespace ContactManaging.Core.RequestModels
                 .NotNull();
 
             RuleFor(c => c.DateOfBirthDateTime)
+                .NotNull()
                 .LessThanOrEqualTo(DateTime.Today);
 
             RuleFor(c => c.Address)
