@@ -11,19 +11,12 @@ namespace ContactManaging.Core.RequestModels
 {
     public class SaveContactRequestModel
     {
-        private DateOnly _dateOfBirth;
 
         public string FirstName { get; set; }
 
         public string Surname { get; set; }
 
-        public DateOnly DateOfBirth {
-            get => _dateOfBirth; 
-            set
-            {
-                _dateOfBirth = value;
-            }
-        }
+        public DateOnly DateOfBirth { get; set; }
 
         public string? Address { get; set; }
 
@@ -45,8 +38,8 @@ namespace ContactManaging.Core.RequestModels
                 .MaximumLength(200);
 
             RuleFor(c => c.DateOfBirth)
-                .NotNull().
-                LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today));
+                .NotEmpty()
+                .LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today));
 
             RuleFor(c => c.Address)
                 .MaximumLength(200);
