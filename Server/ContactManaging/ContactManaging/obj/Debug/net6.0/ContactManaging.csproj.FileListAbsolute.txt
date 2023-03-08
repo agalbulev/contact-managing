@@ -78,3 +78,5 @@ C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\Contact
 C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\FluentValidation.dll
 C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\DateOnlyTimeOnly.AspNet.dll
+C:\Projects\task\Server\ContactManaging\ContactManaging\bin\Debug\net6.0\DateOnlyTimeOnly.AspNet.Swashbuckle.dll

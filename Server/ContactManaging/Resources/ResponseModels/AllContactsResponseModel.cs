@@ -14,7 +14,7 @@ namespace ContactManaging.Core.ResponseModels
 
         public string Surname { get; set; }
 
-        public DateTime DateOfBirth { get; set; } 
+        public DateOnly DateOfBirth { get; set; } 
 
         public string? Address { get; set; }
 

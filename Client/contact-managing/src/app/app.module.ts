@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactsModule } from './contacts/contacts.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ContactsModule } from './contacts/contacts.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ContactsModule
+    ContactsModule,
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

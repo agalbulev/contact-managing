@@ -11,23 +11,17 @@ namespace ContactManaging.Core.RequestModels
 {
     public class SaveContactRequestModel
     {
-        private string _dateOfBirth;
+        private DateOnly _dateOfBirth;
 
         public string FirstName { get; set; }
 
         public string Surname { get; set; }
 
-        public string DateOfBirth {
+        public DateOnly DateOfBirth {
             get => _dateOfBirth; 
             set
             {
-                DateTime dt;
                 _dateOfBirth = value;
-
-                if (DateTime.TryParseExact(value, "yyyy-dd-MM", null, DateTimeStyles.None, out dt))
-                {
-                    DateOfBirthDateTime = dt;
-                }
             }
         }
 
@@ -36,8 +30,6 @@ namespace ContactManaging.Core.RequestModels
         public string? PhoneNumber { get; set; }
 
         public string? Iban { get; set; }
-
-        public DateTime? DateOfBirthDateTime { get; private set; }
     }
 
     public class SaveContactRequestModelValidator : AbstractValidator<SaveContactRequestModel>
@@ -53,11 +45,8 @@ namespace ContactManaging.Core.RequestModels
                 .MaximumLength(200);
 
             RuleFor(c => c.DateOfBirth)
-                .NotNull();
-
-            RuleFor(c => c.DateOfBirthDateTime)
-                .NotNull()
-                .LessThanOrEqualTo(DateTime.Today);
+                .NotNull().
+                LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today));
 
             RuleFor(c => c.Address)
                 .MaximumLength(200);

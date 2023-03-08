@@ -27,7 +27,7 @@ namespace ContactManaging.Core.Handlers.CommandHandlers
                 Surname = command.Surname,
                 Address = command.Address,
                 Iban = command.Iban,
-                DateOfBirth = command.DateOfBirthDateTime.HasValue ? (DateTime)command.DateOfBirthDateTime : DateTime.UtcNow,
+                DateOfBirth = command.DateOfBirth.ToDateTime(TimeOnly.MinValue),
                 PhoneNumber = command.PhoneNumber
             };
 

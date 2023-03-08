@@ -17,6 +17,9 @@ namespace ContactManaging.Core.Data
             {
                 build.HasKey(p => p.Id);
 
+                build.Property(p => p.DateOfBirth)
+                    .HasColumnType("date");
+
                 build.Property(p => p.Id)
                     .ValueGeneratedOnAdd();
 

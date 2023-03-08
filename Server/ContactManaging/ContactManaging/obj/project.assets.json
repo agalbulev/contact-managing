@@ -46,6 +46,31 @@
           }
         }
       },
+      "DateOnlyTimeOnly.AspNet/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/DateOnlyTimeOnly.AspNet.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/DateOnlyTimeOnly.AspNet.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "DateOnlyTimeOnly.AspNet.Swashbuckle/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "DateOnlyTimeOnly.AspNet": "2.1.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.2.3"
+        },
+        "compile": {
+          "lib/net6.0/DateOnlyTimeOnly.AspNet.Swashbuckle.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/DateOnlyTimeOnly.AspNet.Swashbuckle.dll": {}
+        }
+      },
       "FluentValidation/11.2.1": {
         "type": "package",
         "compile": {
@@ -1237,6 +1262,34 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "DateOnlyTimeOnly.AspNet/2.1.1": {
+      "sha512": "7HlGV6sm0efRMquxnZaoqV3KybUMOs1IaJ4TaX85v7IZF01h1YV6Zscos9g4qQfrGYfvqLjbpe3Q54cmMBeISQ==",
+      "type": "package",
+      "path": "dateonlytimeonly.aspnet/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dateonlytimeonly.aspnet.2.1.1.nupkg.sha512",
+        "dateonlytimeonly.aspnet.nuspec",
+        "lib/net6.0/DateOnlyTimeOnly.AspNet.dll",
+        "lib/net7.0/DateOnlyTimeOnly.AspNet.dll"
+      ]
+    },
+    "DateOnlyTimeOnly.AspNet.Swashbuckle/2.1.1": {
+      "sha512": "X2k2yelbE2jyBI/pOv5T615ell5Rhmb31MV1mM0Q+VpqNUran20gdGz9MBP9dbAcbH1EQ/l/s/EcX/+Bp365jQ==",
+      "type": "package",
+      "path": "dateonlytimeonly.aspnet.swashbuckle/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dateonlytimeonly.aspnet.swashbuckle.2.1.1.nupkg.sha512",
+        "dateonlytimeonly.aspnet.swashbuckle.nuspec",
+        "lib/net6.0/DateOnlyTimeOnly.AspNet.Swashbuckle.dll",
+        "lib/net7.0/DateOnlyTimeOnly.AspNet.Swashbuckle.dll"
       ]
     },
     "FluentValidation/11.2.1": {
@@ -3558,6 +3611,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "ContactManaging.Core >= 1.0.0",
+      "DateOnlyTimeOnly.AspNet >= 2.1.1",
+      "DateOnlyTimeOnly.AspNet.Swashbuckle >= 2.1.1",
       "FluentValidation.AspNetCore >= 11.2.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -3606,6 +3661,14 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "DateOnlyTimeOnly.AspNet": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "DateOnlyTimeOnly.AspNet.Swashbuckle": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
           "FluentValidation.AspNetCore": {
             "target": "Package",
             "version": "[11.2.2, )"

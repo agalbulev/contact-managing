@@ -27,7 +27,7 @@ namespace ContactManaging.Core.Handlers.QueryHandlers
                 FirstName = p.FirstName,
                 Surname = p.Surname,
                 Address = p.Address,
-                DateOfBirth = p.DateOfBirth,
+                DateOfBirth = DateOnly.FromDateTime(p.DateOfBirth),
                 Iban = p.Iban,
                 PhoneNumber = p.PhoneNumber
             }).ToListAsync();

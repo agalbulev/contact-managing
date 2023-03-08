@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KtoWk6DOOH8QWr6nS6oDUYzXswchbfuJvtnbvPlQDiSffZjZQ+VknzL6ZUOPHd/EZPHxLU7zE4pvqraqlCJCiQ==",
+  "dgSpecHash": "39BS318F6yW3kmmffkmTtB5WH1XuYNyMxXkC9u/0DBwvFppGhMAjkGLi02IbLjT+y4qSSOVpfNxD1fb0Lti6CQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\task\\Server\\ContactManaging\\ContactManaging\\ContactManaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\dateonlytimeonly.aspnet\\2.1.1\\dateonlytimeonly.aspnet.2.1.1.nupkg.sha512",
+    "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\dateonlytimeonly.aspnet.swashbuckle\\2.1.1\\dateonlytimeonly.aspnet.swashbuckle.2.1.1.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
     "C:\\Users\\aleksandar.galbulev\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
