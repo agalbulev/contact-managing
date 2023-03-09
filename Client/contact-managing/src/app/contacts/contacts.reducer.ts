@@ -1,14 +1,16 @@
+import { createSelector } from '@ngrx/store';
+import { AppState } from 'src/app-store';
 import { ContactsActionTypes, ContactsActionsUnion } from './contacts.actions';
 import { IContact } from './services/contacts.service';
 
 export interface ContactsState {
     isLoadingContacts: boolean;
-    contacts: IContact[]
+    contacts?: IContact[]
 }
 
 const initialState: ContactsState = {
     isLoadingContacts: false,
-    contacts: []
+    contacts: undefined
 };
 
 export function reducer(
@@ -33,3 +35,15 @@ export function reducer(
         }
     }
 }
+
+export const selectFeature = (state: AppState) => state.contactsModule;
+
+export const selectContacts = createSelector(
+    selectFeature,
+    (state: ContactsState) => state.contacts
+);
+
+export const selectContactsLoading = createSelector(
+    selectFeature,
+    (state: ContactsState) => state.isLoadingContacts
+);
