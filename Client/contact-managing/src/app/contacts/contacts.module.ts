@@ -9,11 +9,17 @@ import { GetContactsEffect } from './effects/get-contacts.effect';
 import { TableModule } from 'primeng/table';
 import { SkeletonModule } from 'primeng/skeleton';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
     ContactsComponent,
     AddContactComponent
+  ],
+  providers: [
+    MessageService
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,9 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
     StoreModule.forFeature("contactsModule", reducer),
     EffectsModule.forFeature([GetContactsEffect]),
     TableModule,
-    SkeletonModule
+    SkeletonModule,
+    MessagesModule,
+    ToastModule
   ]
 })
 export class ContactsModule { }

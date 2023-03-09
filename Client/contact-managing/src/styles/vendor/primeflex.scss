@@ -2,3 +2,7 @@
 @import 'primeflex//src/_mixins';
 @import 'primeflex/src/_flexbox';
 @import 'primeflex/src/_spacing';
+
+.p-menuitem-link-active {
+    background-color: #dadfe4;
+}

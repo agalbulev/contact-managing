@@ -15,11 +15,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.items = [{
       label: "Contacts",
-      routerLink: "/",
+      routerLink: ['/'],
+      routerLinkActiveOptions: {exact:true},
       icon: PrimeIcons.BOOK
     }, {
       label: "Add Contact",
-      routerLink: "/add",
+      routerLink: ['/add'],
+      routerLinkActiveOptions: {exact:true},
       icon: PrimeIcons.USER_PLUS
     }]
   }

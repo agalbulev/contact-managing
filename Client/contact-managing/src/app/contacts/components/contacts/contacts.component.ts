@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app-store';
 import { GetContacts } from '../../contacts.actions';
