@@ -13,7 +13,7 @@ import { IContact } from '../../services/contacts.service';
 })
 export class ContactsComponent implements OnInit {
 
-  public contacts: IContact[] = [];
+  public contacts: IContact[] = <any>[{}, {}, {}];
   public isLoading$: Observable<boolean> = this.store.select(selectContactsLoading);
 
   constructor(

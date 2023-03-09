@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 25,
       logOnly: environment.production
     }),
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
