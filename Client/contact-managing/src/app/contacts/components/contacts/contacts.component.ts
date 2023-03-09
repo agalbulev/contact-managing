@@ -6,6 +6,10 @@ import { GetContacts } from '../../contacts.actions';
 import { selectContacts, selectContactsLoading } from '../../contacts.reducer';
 import { IContact } from '../../services/contacts.service';
 
+interface IContactView extends IContact {
+  dateOfBirthObject: Date;
+}
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -13,7 +17,7 @@ import { IContact } from '../../services/contacts.service';
 })
 export class ContactsComponent implements OnInit {
 
-  public contacts: IContact[] = <any>[{}, {}, {}];
+  public contacts: IContactView[] = <any>[{}, {}, {}];
   public isLoading$: Observable<boolean> = this.store.select(selectContactsLoading);
 
   constructor(
@@ -27,7 +31,10 @@ export class ContactsComponent implements OnInit {
         return;
       }
 
-      this.contacts = contacts;
+      this.contacts = contacts.map(contact => ({
+        ...contact,
+        dateOfBirthObject: new Date(contact.dateOfBirth)
+      }));
     })
   }
 
