@@ -9,6 +9,10 @@ import { GetContactsEffect } from './effects/get-contacts.effect';
 import { TableModule } from 'primeng/table';
 import { SkeletonModule } from 'primeng/skeleton';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+import { AddContactEffect } from './effects/add-contact.effect';
 
 @NgModule({
   declarations: [
@@ -19,9 +23,12 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
     CommonModule,
     ContactsRoutingModule,
     StoreModule.forFeature("contactsModule", reducer),
-    EffectsModule.forFeature([GetContactsEffect]),
+    EffectsModule.forFeature([GetContactsEffect, AddContactEffect]),
     TableModule,
-    SkeletonModule
+    SkeletonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    CalendarModule
   ]
 })
 export class ContactsModule { }

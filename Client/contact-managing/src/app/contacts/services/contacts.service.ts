@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 export interface IContact {
-  id: null;
+  id?: number;
   firstName: string;
   surname: string;
   dateOfBirth: string;
@@ -23,5 +23,9 @@ export class ContactsService {
 
   getContacts() {
     return this.httpClient.get<IContact[]>(`${environment.apiUrl}/contacts`);
+  }
+
+  addContact(contact: IContact) {
+    return this.httpClient.post<number>(`${environment.apiUrl}/contacts`, contact);
   }
 }

@@ -1,7 +1,9 @@
 @import "primeflex/src/_variables";
-@import 'primeflex//src/_mixins';
+@import 'primeflex/src/_mixins';
+@import 'primeflex/src/_formlayout';
 @import 'primeflex/src/_flexbox';
 @import 'primeflex/src/_spacing';
+@import 'primeflex/src/_size';
 
 .p-menuitem-link-active {
     background-color: #dadfe4;

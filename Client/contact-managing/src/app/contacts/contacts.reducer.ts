@@ -30,6 +30,17 @@ export function reducer(
                 isLoadingContacts: action.payload.isLoading
             }
         }
+        case ContactsActionTypes.AddContactSuccess: {
+            const contact = state.contacts || [];
+
+            return {
+                ...state,
+                contacts: [
+                    ...contact,
+                    action.payload.contact
+                ]
+            }
+        }
         default: {
             return state;
         }

@@ -4,7 +4,9 @@ import { IContact } from "./services/contacts.service";
 export enum ContactsActionTypes {
     GetContacts = '[Contacts] Get All Contacts',
     IsLoadingContacts = '[Contacts] Is Loading',
-    ContactsSuccess = '[Contacts] Success'
+    ContactsSuccess = '[Contacts] Success',
+    AddContact = '[Contacts] Add',
+    AddContactSuccess = '[Contacts] Add Success'
 }
 
 export class GetContacts implements Action {
@@ -14,13 +16,25 @@ export class GetContacts implements Action {
 export class IsLoadingContacts implements Action {
     readonly type = ContactsActionTypes.IsLoadingContacts;
 
-    constructor(public payload: { isLoading: boolean }) {};
+    constructor(public payload: { isLoading: boolean }) { };
 }
 
 export class ContactsSuccess implements Action {
     readonly type = ContactsActionTypes.ContactsSuccess;
 
-    constructor(public payload: { contacts: IContact[] }) {}
+    constructor(public payload: { contacts: IContact[] }) { }
 }
 
-export type ContactsActionsUnion = GetContacts | IsLoadingContacts | ContactsSuccess;
+export class AddContact implements Action {
+    readonly type = ContactsActionTypes.AddContact;
+
+    constructor(public payload: { contact: IContact }) {}
+}
+
+export class AddContactSuccess implements Action {
+    readonly type = ContactsActionTypes.AddContactSuccess;
+
+    constructor(public payload: { contact: IContact }) {}
+}
+
+export type ContactsActionsUnion = GetContacts | IsLoadingContacts | ContactsSuccess | AddContact | AddContactSuccess;

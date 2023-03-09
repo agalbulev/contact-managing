@@ -1,1 +1,18 @@
-<p>add-contact works!</p>
+<div class="card">
+    <form *ngIf="form" [formGroup]="form" (submit)="submit()" >
+        <div class="field">
+            <label for="firstName">First Name</label>
+            <input id="firstName" class="w-full" type="text" pInputText formControlName="firstName" />
+        </div>
+        <div class="field">
+            <label for="surname">Surname</label>
+            <input id="surname" class="w-full" type="text" pInputText formControlName="surname" />
+        </div>
+        <div class="field">
+            <label for="dateOfBirth">Date of Birth</label>
+            <p-calendar inputId="dateOfBirth" styleClass="w-full" [readonlyInput]="true" dateFormat="M dd, yy"
+                [maxDate]="maxDateValue" formControlName="dateOfBirth"></p-calendar>
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
