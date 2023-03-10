@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -42,13 +43,16 @@ namespace ContactManaging.Core.RequestModels
                 .LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today));
 
             RuleFor(c => c.Address)
-                .MaximumLength(200);
+                .MaximumLength(200)
+                .Unless(c => string.IsNullOrEmpty(c.Address));
 
             RuleFor(c => c.PhoneNumber)
-                .Matches(new Regex("^\\+?[0-9]{7,14}$"));
+                .Matches(new Regex("^\\+?[0-9]{7,14}$"))
+                .Unless(c => string.IsNullOrEmpty(c.PhoneNumber));
 
             RuleFor(c => c.Iban)
-                .Matches(new Regex("^([A-Z]{2}[ \\-]?[0-9]{2})(?=(?:[ \\-]?[A-Z0-9]){9,30}$)((?:[ \\-]?[A-Z0-9]{3,5}){2,7})([ \\-]?[A-Z0-9]{1,3})?$"));
+                .Matches(new Regex("^([A-Z]{2}[ \\-]?[0-9]{2})(?=(?:[ \\-]?[A-Z0-9]){9,30}$)((?:[ \\-]?[A-Z0-9]{3,5}){2,7})([ \\-]?[A-Z0-9]{1,3})?$"))
+                .Unless(c => string.IsNullOrEmpty(c.Iban));
         }
     }
 }
