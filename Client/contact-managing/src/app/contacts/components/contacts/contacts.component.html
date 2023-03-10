@@ -10,7 +10,7 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-contact let-columns="columns">
-        <tr *ngIf="!(isLoading$ | async)">
+        <tr data-cy="contact-row" *ngIf="!(isLoading$ | async)">
             <td><span class="p-column-title">First name</span>{{contact.firstName}}</td>
             <td><span class="p-column-title">Surname</span>{{contact.surname}}</td>
             <td><span class="p-column-title">Date of Birth</span>{{contact.dateOfBirthObject | date : "mediumDate"}}</td>
@@ -19,7 +19,7 @@
             <td><span class="p-column-title">IBAN</span><span>{{contact.iban | iban}}</span></td>
         </tr>
         <ng-container *ngIf="(isLoading$ | async)">
-            <tr>
+            <tr data-cy="loader-row">
                 <td><span class="p-column-title">First name</span>
                     <p-skeleton borderRadius="4px" width="100px" height="1rem"></p-skeleton>
                 </td>
