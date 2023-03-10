@@ -16,7 +16,7 @@
             <td><span class="p-column-title">Date of Birth</span>{{contact.dateOfBirthObject | date : "mediumDate"}}</td>
             <td><span class="p-column-title">Address</span>{{contact.address}}</td>
             <td><span class="p-column-title">Phone Number</span><span>{{contact.phoneNumber}}</span></td>
-            <td><span class="p-column-title">IBAN</span><span>{{contact.iban}}</span></td>
+            <td><span class="p-column-title">IBAN</span><span>{{contact.iban | iban}}</span></td>
         </tr>
         <ng-container *ngIf="(isLoading$ | async)">
             <tr>

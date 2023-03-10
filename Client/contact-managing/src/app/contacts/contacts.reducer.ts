@@ -5,12 +5,14 @@ import { IContact } from './services/contacts.service';
 
 export interface ContactsState {
     isLoadingContacts: boolean;
-    contacts?: IContact[]
+    contacts?: IContact[],
+    contactsLoaded: boolean;
 }
 
 const initialState: ContactsState = {
     isLoadingContacts: false,
-    contacts: undefined
+    contacts: undefined,
+    contactsLoaded: false
 };
 
 export function reducer(
@@ -21,7 +23,8 @@ export function reducer(
         case ContactsActionTypes.ContactsSuccess: {
             return {
                 ...state,
-                contacts: action.payload.contacts
+                contacts: action.payload.contacts,
+                contactsLoaded: true
             }
         }
         case ContactsActionTypes.IsLoadingContacts: {
@@ -49,12 +52,28 @@ export function reducer(
 
 export const selectFeature = (state: AppState) => state.contactsModule;
 
-export const selectContacts = createSelector(
-    selectFeature,
-    (state: ContactsState) => state.contacts
-);
-
 export const selectContactsLoading = createSelector(
     selectFeature,
     (state: ContactsState) => state.isLoadingContacts
 );
+
+const selectContactList = createSelector(
+    selectFeature,
+    (state: ContactsState) => state.contacts
+);
+
+const selectContactsLoaded = createSelector(
+    selectFeature,
+    (state: ContactsState) => state.contactsLoaded
+);
+
+export const selectContacts = createSelector(
+    selectContactList,
+    selectContactsLoaded,
+    (contacts, contactsLoaded) => {
+        return {
+            contacts,
+            contactsLoaded
+        }
+    }
+)

@@ -1,18 +1,43 @@
 <div class="card">
-    <form *ngIf="form" [formGroup]="form" (submit)="submit()" >
+    <form *ngIf="form" [formGroup]="form" (submit)="submit()">
         <div class="field">
             <label for="firstName">First Name</label>
             <input id="firstName" class="w-full" type="text" pInputText formControlName="firstName" />
+            <small *ngIf="showError('firstName', 'required')" id="username-help" class="p-error">Field is
+                required</small>
         </div>
         <div class="field">
             <label for="surname">Surname</label>
             <input id="surname" class="w-full" type="text" pInputText formControlName="surname" />
+            <small *ngIf="showError('surname', 'required')" id="username-help" class="p-error">Field is required</small>
         </div>
         <div class="field">
             <label for="dateOfBirth">Date of Birth</label>
             <p-calendar inputId="dateOfBirth" styleClass="w-full" [readonlyInput]="true" dateFormat="M dd, yy"
                 [maxDate]="maxDateValue" formControlName="dateOfBirth"></p-calendar>
+            <small *ngIf="showError('dateOfBirth', 'required')" id="username-help" class="p-error">Field is
+                required</small>
         </div>
-        <button>Submit</button>
+        <div class="field">
+            <label for="address">Address</label>
+            <input id="address" class="w-full" type="text" pInputText formControlName="address" />
+        </div>
+        <div class="field">
+            <label for="phoneNumber">Phone Number</label>
+            <p-inputMask inputId="phoneNumber" mask="(999) 999-9999" styleClass="w-full" formControlName="phoneNumber"
+                placeholder="(999) 999-9999" [unmask]="true"></p-inputMask>
+            <small *ngIf="showError('phoneNumber', 'pattern')" id="username-help" class="p-error">Field is not valid
+                format</small>
+        </div>
+        <div class="field">
+            <label for="iban">IBAN</label>
+            <p-inputMask inputId="iban" mask="**** **** **** **** **** **" styleClass="w-full" formControlName="iban" [unmask]="true">
+            </p-inputMask>
+            <small *ngIf="showError('iban', 'pattern')" id="username-help" class="p-error">Field is not valid
+                format</small>
+        </div>
+        <div class="text-center mt-6">
+            <p-button label="Submit" icon="pi pi-check" type="submit"></p-button>
+        </div>
     </form>
 </div>

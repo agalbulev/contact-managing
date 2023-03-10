@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { AddContactEffect } from './effects/add-contact.effect';
+import { InputMaskModule } from 'primeng/inputmask';
+import { CoreModule } from '../core/core.module';
+import { MessageModule } from 'primeng/message';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import { AddContactEffect } from './effects/add-contact.effect';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     ContactsRoutingModule,
     StoreModule.forFeature("contactsModule", reducer),
     EffectsModule.forFeature([GetContactsEffect, AddContactEffect]),
@@ -28,7 +33,10 @@ import { AddContactEffect } from './effects/add-contact.effect';
     SkeletonModule,
     ReactiveFormsModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    InputMaskModule,
+    MessageModule,
+    ButtonModule
   ]
 })
 export class ContactsModule { }

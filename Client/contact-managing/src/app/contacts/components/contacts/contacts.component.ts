@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AppState } from 'src/app-store';
 import { GetContacts } from '../../contacts.actions';
 import { selectContacts, selectContactsLoading } from '../../contacts.reducer';
@@ -16,27 +15,35 @@ interface IContactView extends IContact {
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
 
   public contacts: IContactView[] = <any>[{}, {}, {}];
   public isLoading$: Observable<boolean> = this.store.select(selectContactsLoading);
+
+  private subscriptions: Subscription[] = [];
 
   constructor(
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.store.select(selectContacts).subscribe(contacts => {
-      if (!contacts) {
+    this.subscriptions.push(this.store.select(selectContacts).subscribe(({ contactsLoaded, contacts }) => {
+      if (!contactsLoaded) {
         this.store.dispatch(new GetContacts());
         return;
       }
 
-      this.contacts = contacts.map(contact => ({
-        ...contact,
-        dateOfBirthObject: new Date(contact.dateOfBirth)
-      }));
-    })
+      if (contactsLoaded && contacts) {
+        this.contacts = contacts.map(contact => ({
+          ...contact,
+          dateOfBirthObject: new Date(contact.dateOfBirth)
+        }));
+      }
+    }))
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
 }
