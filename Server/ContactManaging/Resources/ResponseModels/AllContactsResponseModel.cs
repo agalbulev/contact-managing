@@ -10,11 +10,11 @@ namespace ContactManaging.Core.ResponseModels
     {
         public int Id { get; set; }
 
-        public string FirstName { get; set; } = default!;
+        public string FirstName { get; set; }
 
-        public string Surname { get; set; } = default!;
+        public string Surname { get; set; }
 
-        public DateTime DateOfBirth { get; set; } 
+        public DateOnly DateOfBirth { get; set; } 
 
         public string? Address { get; set; }
 

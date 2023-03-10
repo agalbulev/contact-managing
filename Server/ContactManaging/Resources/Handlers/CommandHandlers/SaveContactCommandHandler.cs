@@ -3,6 +3,7 @@ using ContactManaging.Core.Interfaces.CommandHandlers;
 using ContactManaging.Core.RequestModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,8 @@ namespace ContactManaging.Core.Handlers.CommandHandlers
                 FirstName = command.FirstName,
                 Surname = command.Surname,
                 Address = command.Address,
-                DateOfBirth = command.DateOfBirth,
                 Iban = command.Iban,
+                DateOfBirth = command.DateOfBirth.ToDateTime(TimeOnly.MinValue),
                 PhoneNumber = command.PhoneNumber
             };
 

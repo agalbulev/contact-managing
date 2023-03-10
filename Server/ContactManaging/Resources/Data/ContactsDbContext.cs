@@ -17,14 +17,19 @@ namespace ContactManaging.Core.Data
             {
                 build.HasKey(p => p.Id);
 
+                build.Property(p => p.DateOfBirth)
+                    .HasColumnType("date");
+
                 build.Property(p => p.Id)
                     .ValueGeneratedOnAdd();
 
                 build.Property(p => p.FirstName)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasMaxLength(200);
 
                 build.Property(p => p.Surname)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasMaxLength(200);
 
                 build.Property(p => p.DateOfBirth)
                     .IsRequired();
